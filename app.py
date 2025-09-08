@@ -14,7 +14,9 @@ CORS(app)
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    # Read the secret value from the environment variable
+    secret_value = os.environ.get("MY_SECRET", "Secret not found!")
+    return f"The secret is: {secret_value}"
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 80))
