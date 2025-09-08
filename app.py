@@ -5,9 +5,11 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-# Allow requests only from specific origins
-# TODO: Replace "https://your-frontend-domain.com" with your actual frontend domain
-CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://your-frontend-domain.com"]}})
+# For production, you should restrict origins like this example:
+# CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://your-frontend-domain.com"]}})
+
+# For now, allow all origins for development
+CORS(app)
 
 
 @app.route('/')
